@@ -14,7 +14,7 @@ fn get_n_diverged(x0: f64, y0: f64, max_iter: usize) -> u8 {
     max_iter as u8
 }
 
-pub fn generate_mandenblor_set(
+pub fn generate_mandelblot_set(
     canvas_w: usize,
     canvas_h: usize,
     x_min: f64,
@@ -65,7 +65,7 @@ mod tests {
         let max_iter = 8;
 
         assert_eq!(
-            generate_mandenblor_set(canvas_w, canvas_h, x_min, x_max, y_min, y_max, max_iter),
+            generate_mandelblot_set(canvas_w, canvas_h, x_min, x_max, y_min, y_max, max_iter),
             vec![96, 96, 96, 255, 0, 0, 0, 255, 0, 0, 0, 255, 0, 0, 0, 255]
         );
     }
