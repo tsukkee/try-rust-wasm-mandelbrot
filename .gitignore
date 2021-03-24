@@ -5,4 +5,7 @@ crate/bin/
 crate/pkg/
 crate/wasm-pack.log
 
+www/node_modules
+www/dist
+
 .DS_Store
