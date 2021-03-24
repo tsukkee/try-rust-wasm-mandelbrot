@@ -16,7 +16,7 @@ Promise.all([mandelbrot]).then(async function([
   maxIterRange.addEventListener("input", () => {
     const maxIter = maxIterRange.value;
     maxIterDisplay.textContent = maxIter;
-    draw_mandelbrot_set(canvas, maxIter);
+    draw_mandelbrot_set(canvas, Number(maxIter));
   });
 });
 
