@@ -61,10 +61,9 @@ pub fn generate_mandelbrot_set(
 }
 
 #[wasm_bindgen]
-pub fn draw_mandelbrot_set() {
-    const CANVAS_ID: &str = "canvas_wasm";
+pub fn draw_mandelbrot_set(canvas_id: &str, max_iter: usize) {
     let document = web_sys::window().unwrap().document().unwrap();
-    let canvas = document.get_element_by_id(CANVAS_ID).unwrap();
+    let canvas = document.get_element_by_id(canvas_id).unwrap();
 
     let canvas: web_sys::HtmlCanvasElement = canvas
         .dyn_into::<web_sys::HtmlCanvasElement>()
@@ -82,10 +81,9 @@ pub fn draw_mandelbrot_set() {
     const X_MAX: f64 = 0.5;
     const Y_MIN: f64 = -1.0;
     const Y_MAX: f64 = 1.0;
-    const MAX_ITER: usize = 64;
 
     let mut result = measure_elapased_time!("generate:wasm\telapsed:", {
-        logic::generate_mandelbrot_set(canvas_w, canvas_h, X_MIN, X_MAX, Y_MIN, Y_MAX, MAX_ITER)
+        logic::generate_mandelbrot_set(canvas_w, canvas_h, X_MIN, X_MAX, Y_MIN, Y_MAX, max_iter)
     });
     measure_elapased_time!("draw:wasm\telapsed:", {
         let data = ImageData::new_with_u8_clamped_array_and_sh(
