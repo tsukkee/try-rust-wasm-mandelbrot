@@ -1,6 +1,8 @@
-/target
+crate/target
 **/*.rs.bk
-Cargo.lock
-bin/
-pkg/
-wasm-pack.log
+crate/Cargo.lock
+crate/bin/
+crate/pkg/
+crate/wasm-pack.log
+
+.DS_Store

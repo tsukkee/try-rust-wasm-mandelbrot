@@ -61,14 +61,7 @@ pub fn generate_mandelbrot_set(
 }
 
 #[wasm_bindgen]
-pub fn draw_mandelbrot_set(canvas_id: &str, max_iter: usize) {
-    let document = web_sys::window().unwrap().document().unwrap();
-    let canvas = document.get_element_by_id(canvas_id).unwrap();
-
-    let canvas: web_sys::HtmlCanvasElement = canvas
-        .dyn_into::<web_sys::HtmlCanvasElement>()
-        .map_err(|_| ())
-        .unwrap();
+pub fn draw_mandelbrot_set(canvas: &web_sys::HtmlCanvasElement, max_iter: usize) {
     let context = canvas
         .get_context("2d")
         .unwrap()
