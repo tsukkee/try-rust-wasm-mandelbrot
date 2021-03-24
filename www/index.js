@@ -1,7 +1,7 @@
 'use strict'
 
 const DEFAULT_MAX_ITER = 64;
-const mandelbrot = import("../pkg").catch(console.error);
+const mandelbrot = import("../crate/pkg").catch(console.error);
 
 Promise.all([mandelbrot]).then(async function([
     { draw_mandelbrot_set }
